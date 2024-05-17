@@ -9,12 +9,14 @@ function RatingList({ reviews, hotels }) {
       {reviews.map((review) => {
         const hotel = hotels.find((hotel) => hotel.id === review.hotelID);
         return (
-          <Rating
-            roomNumber={review.roomNumber}
-            ratings={review.reviews}
-            hotelName={hotel.name}
-            key={`${review.hotelID}-${review.roomNumber}`}
-          />
+          hotel && (
+            <Rating
+              roomNumber={review.roomNumber}
+              ratings={review.reviews}
+              hotelName={hotel.name}
+              key={`${review.hotelID}-${review.roomNumber}`}
+            />
+          )
         );
       })}
     </div>

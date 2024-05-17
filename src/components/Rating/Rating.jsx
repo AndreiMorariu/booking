@@ -8,7 +8,7 @@ function Rating({ roomNumber, hotelName, ratings }) {
       <div className="review-information">
         <div>
           <p>
-            Hotel: <b>{hotelName}</b>
+            Hotel: <b>{hotelName || ""}</b>
           </p>
         </div>
         <div>

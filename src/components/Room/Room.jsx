@@ -7,6 +7,7 @@ const roomTypes = {
   1: "single",
   2: "double",
   3: "suite",
+  4: "matrimonal",
 };
 
 function Room({ room, onAddBooking, hotelID }) {

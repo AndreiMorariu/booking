@@ -3,6 +3,13 @@ import { Rating } from "react-simple-star-rating";
 import "./BookedRoom.css";
 import toast from "react-hot-toast";
 
+const roomTypes = {
+  1: "single",
+  2: "double",
+  3: "suite",
+  4: "matrimonal",
+};
+
 function BookedRoom({ room, rooms, hotels, onCancel, onChange, onReview }) {
   const [isChanging, setIsChanging] = useState(false);
   const [review, setReview] = useState(false);
@@ -184,7 +191,7 @@ function AvailableRooms({
                   Number: <b>{availableRoom.number}</b>
                 </span>
                 <span>
-                  Type: <b>{availableRoom.type}</b>
+                  Type: <b>{roomTypes[availableRoom.type]}</b>
                 </span>
                 <span>
                   Price: <b>{availableRoom.price}$</b>

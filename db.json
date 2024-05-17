@@ -35,8 +35,8 @@
     "rooms": [
       {
         "number": 41,
-        "type": 3,
-        "price": 240,
+        "type": 2,
+        "price": 150,
         "isAvailable": true
       },
       {
@@ -47,8 +47,8 @@
       },
       {
         "number": 60,
-        "type": 3,
-        "price": 240,
+        "type": 4,
+        "price": 300,
         "isAvailable": true
       }
     ],
