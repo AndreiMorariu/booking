@@ -1,0 +1,28 @@
+.room {
+  border: 2px solid var(--dark-blue);
+  padding: 1rem;
+  border-radius: 10px;
+  width: 20rem;
+  height: 15rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.room .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.room button {
+  margin-left: auto;
+}
+
+.dates {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}

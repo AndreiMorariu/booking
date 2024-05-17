@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Hotel Ramada",
+    "latitude": 46.764654252624204,
+    "longitude": 23.598674125224626,
+    "rooms": [
+      {
+        "number": 210,
+        "type": 2,
+        "price": 200,
+        "isAvailable": true
+      },
+      {
+        "number": 125,
+        "type": 1,
+        "price": 350,
+        "isAvailable": true
+      },
+      {
+        "number": 87,
+        "type": 1,
+        "price": 300,
+        "isAvailable": false
+      }
+    ],
+    "checkInHour": "14:00",
+    "checkOutHour": "12:00"
+  },
+  {
+    "id": 2,
+    "name": "Grand Hotel Italia",
+    "latitude": 46.7522792440665,
+    "longitude": 23.605990381045697,
+    "rooms": [
+      {
+        "number": 41,
+        "type": 3,
+        "price": 240,
+        "isAvailable": true
+      },
+      {
+        "number": 50,
+        "type": 3,
+        "price": 240,
+        "isAvailable": true
+      },
+      {
+        "number": 60,
+        "type": 3,
+        "price": 240,
+        "isAvailable": true
+      }
+    ],
+    "checkInHour": "14:00",
+    "checkOutHour": "11:00"
+  },
+  {
+    "id": 3,
+    "name": "Hampton by Hilton",
+    "latitude": 46.77539900854998,
+    "longitude": 23.60182699638966,
+    "rooms": [
+      {
+        "number": 32,
+        "type": 2,
+        "price": 410,
+        "isAvailable": false
+      },
+      {
+        "number": 21,
+        "type": 2,
+        "price": 350,
+        "isAvailable": true
+      },
+      {
+        "number": 64,
+        "type": 3,
+        "price": 300,
+        "isAvailable": true
+      }
+    ],
+    "checkInHour": "13:00",
+    "checkOutHour": "10:00"
+  }
+]

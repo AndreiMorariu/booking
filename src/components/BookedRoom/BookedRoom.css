@@ -1,0 +1,48 @@
+.booked-room-information {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.booked-room-information .action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.no-rooms {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.available-rooms-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.available-rooms-list .available-rooms {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.available-rooms-list .available-rooms .available-room {
+  background-color: var(--gray);
+  padding: 1rem;
+  border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.review-slider div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}

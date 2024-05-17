@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --dark-blue: #003b95;
+  --light-blue: #0057b8;
+  --white: #ffffff;
+  --gray: #e9eaec;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"],
+input[type="number"]:focus {
+  -moz-appearance: textfield;
+  outline: none;
+}
+
+button {
+  background-color: var(--light-blue);
+  border: none;
+  padding: 0.5rem;
+  font-weight: 700;
+  color: var(--white);
+  transition: all 0.3s;
+  cursor: pointer;
+  display: block;
+  border-radius: 1rem;
+}
+
+button:hover {
+  background-color: var(--dark-blue);
+}

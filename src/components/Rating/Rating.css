@@ -1,0 +1,13 @@
+.review-information {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--gray);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.review-information div {
+  display: flex;
+  align-items: center;
+}
