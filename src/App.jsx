@@ -21,7 +21,6 @@ function App() {
     latitude: 0,
     longitude: 0,
   });
-  const [isLocationEnabled, setIsLocationEnabled] = useState(false);
   const [isPromptAccepted, setIsPromptAccepted] = useState(false);
 
   const nearbyHotels = hotels.filter((hotel) => {
@@ -43,12 +42,16 @@ function App() {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           });
-          setIsLocationEnabled(true);
           toast.success("Location access granted");
         },
         (error) => {
-          setIsLocationEnabled(false);
-          toast.error("Location access denied");
+          toast.error(
+            "Location access denied. Default location set to Cluj-Napoca"
+          );
+          setUserPosition({
+            latitude: 46.7712,
+            longitude: 23.6236,
+          });
         }
       );
     }
@@ -172,12 +175,9 @@ function App() {
           <button onClick={() => setIsPromptAccepted(true)}>Allow</button>
         </div>
       )}
-      <Header radius={radius} setRadius={setRadius} />
-      {isPromptAccepted && !isLocationEnabled && (
-        <p>Waiting for location access...</p>
-      )}
-      {isLocationEnabled && (
+      {isPromptAccepted && (
         <>
+          <Header radius={radius} setRadius={setRadius} />
           <HotelList
             hotels={nearbyHotels}
             onAddBooking={handleBookRoom}
