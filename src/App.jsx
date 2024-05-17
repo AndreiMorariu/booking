@@ -16,11 +16,13 @@ import "./App.css";
 function App() {
   const [bookedRooms, setBookedRooms] = useState([]);
   const [userReviews, setUserReviews] = useState([]);
-  const [radius, setRadius] = useState(100);
+  const [radius, setRadius] = useState(0);
   const [userPosition, setUserPosition] = useState({
     latitude: 0,
     longitude: 0,
   });
+  const [isLocationEnabled, setIsLocationEnabled] = useState(false);
+  const [isPromptAccepted, setIsPromptAccepted] = useState(false);
 
   const nearbyHotels = hotels.filter((hotel) => {
     const distanceFromUser = calculateDistance(
@@ -34,13 +36,23 @@ function App() {
   });
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setUserPosition({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      });
-    });
-  }, []);
+    if (isPromptAccepted) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserPosition({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+          setIsLocationEnabled(true);
+          toast.success("Location access granted");
+        },
+        (error) => {
+          setIsLocationEnabled(false);
+          toast.error("Location access denied");
+        }
+      );
+    }
+  }, [isPromptAccepted]);
 
   function handleBookRoom(hotelID, room) {
     const isRoomBooked = bookedRooms.some(
@@ -154,20 +166,33 @@ function App() {
     <div className="container">
       <Notifier />
       <Navbar />
+      {!isPromptAccepted && (
+        <div className="location-prompt">
+          <p>Please allow location access to find nearby hotels.</p>
+          <button onClick={() => setIsPromptAccepted(true)}>Allow</button>
+        </div>
+      )}
       <Header radius={radius} setRadius={setRadius} />
-      <HotelList
-        hotels={nearbyHotels}
-        onAddBooking={handleBookRoom}
-        radius={radius}
-      />
-      <BookedRoomsList
-        rooms={bookedRooms}
-        hotels={nearbyHotels}
-        onCancel={handleCancelBookedRoom}
-        onChange={handleChangeBookedRoom}
-        onReview={handleUserReview}
-      />
-      <RatingList reviews={userReviews} hotels={nearbyHotels} />
+      {isPromptAccepted && !isLocationEnabled && (
+        <p>Waiting for location access...</p>
+      )}
+      {isLocationEnabled && (
+        <>
+          <HotelList
+            hotels={nearbyHotels}
+            onAddBooking={handleBookRoom}
+            radius={radius}
+          />
+          <BookedRoomsList
+            rooms={bookedRooms}
+            hotels={nearbyHotels}
+            onCancel={handleCancelBookedRoom}
+            onChange={handleChangeBookedRoom}
+            onReview={handleUserReview}
+          />
+          <RatingList reviews={userReviews} hotels={nearbyHotels} />
+        </>
+      )}
     </div>
   );
 }
